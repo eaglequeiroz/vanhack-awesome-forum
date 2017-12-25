@@ -7,8 +7,18 @@
         <i class="search link icon"></i>
       </div>
     </div>
-    <a class="ui item">
-      Logout
-    </a>
+
+    <% if logged_in? %>
+      <div class="item">
+        <%= link_to @current_user.name, current_user, class:"ui primary button" %>
+      </div>
+      <div class="item">
+        <%= link_to "Log out", logout_path, class:"ui secondary button" , method: :delete %>
+      </div>
+    <% else %>
+    <div class="item">
+      <%= link_to "Log in", login_path, class: "ui primary button" %>
+    </div>
+    <% end %>
   </div>
 </div>

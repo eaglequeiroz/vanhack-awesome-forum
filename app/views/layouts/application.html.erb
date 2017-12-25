@@ -6,12 +6,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
+    <%= favicon_link_tag 'favicon.png' %>
   </head>
 
   <body>
 	<div class="ui container">
 		<%= render "layouts/header" %>
+
+    <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
 
 		<%= yield %>
 
