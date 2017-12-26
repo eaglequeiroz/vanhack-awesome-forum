@@ -2,21 +2,21 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def index
-    @topics = Topic.all
+    @topics = Topic.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
   end
 
   def new
-    @topic = Topic.new
+    @topic = current_user.topics.build
   end
 
   def edit
   end
 
   def create
-    @topic = Topic.new(topic_params)
+    @topic = current_user.topics.build(topic_params)
 
       if @topic.save
         redirect_to @topic, notice: 'Topic was successfully created.'

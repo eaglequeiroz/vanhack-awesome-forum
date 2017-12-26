@@ -1,5 +1,4 @@
-<h1>New Topic</h1>
+<div class="header">New Topic</div>
+<div class="upButtons"><%= link_to 'Back', topics_path, class: "ui tiny gray button" %></div>
 
 <%= render 'form', topic: @topic %>
-
-<%= link_to 'Back', topics_path, class: "ui primary button" %>

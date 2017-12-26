@@ -1,6 +1,8 @@
-<h1>Editing Topic</h1>
+  <div class="header">Editing Topic</div>
+  <div class="upButtons">
+    <%= link_to 'Show', @topic, class: "ui tiny green button" %>
+    <%= link_to 'Back', topics_path, class: "ui tiny gray button" %>
+  </div>
+
 
 <%= render 'form', topic: @topic %>
-
-<%= link_to 'Show', @topic, class: "ui primary button" %> 
-<%= link_to 'Back', topics_path, class: "ui primary button" %>

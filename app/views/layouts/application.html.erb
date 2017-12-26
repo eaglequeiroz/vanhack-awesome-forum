@@ -10,11 +10,14 @@
   </head>
 
   <body>
+  <%= render "layouts/header" %>
 	<div class="ui container">
-		<%= render "layouts/header" %>
 
     <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <div class="<%= flash_class(message_type) %> closable">
+          <i class="close icon"></i>
+          <%= message %>
+        </div>
       <% end %>
 
 		<%= yield %>

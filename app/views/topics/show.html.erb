@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <div>
+    <%= link_to 'Edit', edit_topic_path(@topic), class: "ui small primary button" %>
+    <%= link_to 'Back', topics_path, class: "ui small gray button" %>
+  </div>
+  <hr>
+  <div class="topic_header"><%= @topic.title %></div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @topic.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @topic.content %>
-</p>
-
-<%= link_to 'Edit', edit_topic_path(@topic), class: "ui primary button" %>
-<%= link_to 'Back', topics_path, class: "ui primary button" %>
+  <div class="topic_content">
+    <%= @topic.content %>
+  </div>
+</div>
+<div>
+  <h2>There are <%= @topic.comments.count %> comments on this Topic. </h2>
+  <%= render @topic.comments %>
+  <h3>Reply to Topic</h3>
+  <%= render "comments/form"  %>
+</div>

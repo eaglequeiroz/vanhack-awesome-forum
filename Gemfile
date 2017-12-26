@@ -8,6 +8,12 @@ end
 # Semantic-Ui-Sass for good looking purposes
 gem 'semantic-ui-sass'
 
+# JQuery Rails
+gem 'jquery-rails'
+
+# Will Paginate
+gem 'will_paginate'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

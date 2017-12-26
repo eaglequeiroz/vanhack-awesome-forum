@@ -13,6 +13,9 @@
         <%= link_to @current_user.name, current_user, class:"ui primary button" %>
       </div>
       <div class="item">
+        <%= link_to "Settings", edit_user_path(current_user), class:"ui primary button" %>
+      </div>
+      <div class="item">
         <%= link_to "Log out", logout_path, class:"ui secondary button" , method: :delete %>
       </div>
     <% else %>
