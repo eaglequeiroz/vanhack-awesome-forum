@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Topics</h1>
-<%= link_to 'New Topic', new_topic_path, class: "ui tiny primary button" %>
+<% if logged_in? %>
+  <%= link_to 'New Topic', new_topic_path, class: "ui tiny primary button" %>
+<% end %>
 
 <table class="ui striped table">
   <thead>
@@ -17,21 +19,26 @@
       <tr>
         <td><%= link_to topic.title, topic %></td>
         <td><%= topic.comments.count %></td>
-        <td>
-            <%= link_to edit_topic_path(topic) do %>
-              <i class="edit icon"></i>
-            <% end %>
-      </td>
-        <td>
-            <%= link_to topic_path(topic), method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <i class="trash icon"></i>
-            <% end %>
-        </td>
+        <% if logged_in? && current_user.id == topic.user_id %>
+          <td>
+              <%= link_to edit_topic_path(topic) do %>
+                <i class="edit icon"></i>
+              <% end %>
+          </td>
+          <td>
+              <%= link_to topic_path(topic), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="trash icon"></i>
+              <% end %>
+          </td>
+        <% else %>
+          <td></td>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
   <tfoot>
-    <tr><th colspan="3">
+    <tr><th colspan="4">
       <div class="ui right floated pagination menu">
             <%= will_paginate @topics, class: "digg_pagination" %>
       </div>

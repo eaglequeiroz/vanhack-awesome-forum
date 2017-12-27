@@ -1,24 +1,31 @@
 <div>
   <div>
-    <%= link_to 'Edit', edit_topic_path(@topic), class: "ui small primary button" %>
+    <% if logged_in? && current_user.id == @topic.user_id %>
+      <%= link_to 'Edit', edit_topic_path(@topic), class: "ui small primary button" %>
+    <% end %>
     <%= link_to 'Back', topics_path, class: "ui small gray button" %>
   </div>
   <hr>
   <div class="topic_header"><%= @topic.title %></div>
 
   <div class="topic_content">
-    <%= @topic.content %>
+    <%= simple_format(@topic.content) %>
   </div>
   <hr />
 </div>
 <div>
   <h2>There are <%= @topic.comments.count %> comments on this Topic. </h2>
   <% @topic.comments.each do |comment| %>
-    <div>
-        <div><%= comment.user.name %></div>
+    <div class="boxComment">
+      <div>
+        <%= gravatar_for comment.user %>
+      </div>
+        <div class="commentHeader">
+          <span><%= comment.user.name %></span> <span class="ui gray tag label"><%= comment.created_at.strftime("%d/%m/%Y at %H:%M:%S") %></span>
+        </div>
         <div><%= comment.comment %></div>
     </div>
   <% end %>
-  <h3>Reply to Topic</h3>
   <%= render "comments/form"  %>
+  <br />
 </div>

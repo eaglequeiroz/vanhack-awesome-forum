@@ -1,5 +1,7 @@
 <div class="ui secondary menu forumMenu">
-  <%= link_to "Vanhack Awesome Forum", root_path, class: "active item" %>
+  <%= link_to root_path, class: "ui image" do %>
+    <%= image_tag("vanhack-logo") %>
+  <% end %>
   <div class="right menu">
     <div class="item">
       <div class="ui icon input">
@@ -12,11 +14,17 @@
     </div>
 
     <% if logged_in? %>
-      <div class="item">
-        <%= link_to @current_user.name, current_user, class:"ui primary button" %>
-      </div>
-      <div class="item">
-        <%= link_to "Settings", edit_user_path(current_user), class:"ui primary button" %>
+      <div class="ui simple dropdown item">
+          <div class="ui mini image"><%= gravatar_for current_user %></div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">
+              <%= link_to "View Profile", current_user, class:"ui primary button" %>
+            </div>
+            <div class="item">
+              <%= link_to "Edit Profile", edit_user_path(current_user), class:"ui primary button" %>
+            </div>
+          </div>
       </div>
       <div class="item">
         <%= link_to "Log out", logout_path, class:"ui secondary button" , method: :delete %>
@@ -24,6 +32,9 @@
     <% else %>
     <div class="item">
       <%= link_to "Log in", login_path, class: "ui primary button" %>
+    </div>
+    <div class="item">
+      <%= link_to "Sign Up", signup_path, class: "ui primary button" %>
     </div>
     <% end %>
   </div>
