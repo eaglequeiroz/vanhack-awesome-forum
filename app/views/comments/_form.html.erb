@@ -1,5 +1,5 @@
 <div class="ui form">
-    <%= form_for([@topic, @topic.comments.build]) do |f| %>
+    <%= form_with(model: [@topic, @topic.comments.build], local: true) do |f| %>
       <div class="field">
         <%= f.label :comment %>
         <%= f.text_area :comment %>

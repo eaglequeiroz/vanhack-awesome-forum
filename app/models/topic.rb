@@ -4,4 +4,9 @@ class Topic < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   default_scope -> { order(updated_at: :desc, created_at: :desc) }
+
+  def self.search(search)
+    # Title is for the above case, the OP incorrectly had 'name'
+    where("title LIKE ?", "%#{search}%")
+  end
 end

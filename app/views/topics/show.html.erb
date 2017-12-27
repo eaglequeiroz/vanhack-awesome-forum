@@ -9,10 +9,16 @@
   <div class="topic_content">
     <%= @topic.content %>
   </div>
+  <hr />
 </div>
 <div>
   <h2>There are <%= @topic.comments.count %> comments on this Topic. </h2>
-  <%= render @topic.comments %>
+  <% @topic.comments.each do |comment| %>
+    <div>
+        <div><%= comment.user.name %></div>
+        <div><%= comment.comment %></div>
+    </div>
+  <% end %>
   <h3>Reply to Topic</h3>
   <%= render "comments/form"  %>
 </div>

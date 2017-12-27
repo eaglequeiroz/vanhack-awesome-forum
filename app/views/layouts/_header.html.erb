@@ -1,10 +1,13 @@
-<div class="ui secondary  menu">
+<div class="ui secondary menu forumMenu">
   <%= link_to "Vanhack Awesome Forum", root_path, class: "active item" %>
   <div class="right menu">
     <div class="item">
       <div class="ui icon input">
-        <input type="text" placeholder="Search...">
-        <i class="search link icon"></i>
+        <%= form_tag(topics_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Topics" %>
+          <%= button_tag(type: "submit", class: "ui gray basic button") do %><i class="search link icon"></i><% end %>
+        <% end %>
+
       </div>
     </div>
 

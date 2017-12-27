@@ -21,9 +21,10 @@
       <% end %>
 
 		<%= yield %>
-
-    <%= render "layouts/footer" %>
-    <%= debug(params) if Rails.env.development? %>
 	</div>
+  <div class="debugBox">
+    <%= debug(params) if Rails.env.development? %>
+  </div>
+  <%= render "layouts/footer" %>
   </body>
 </html>

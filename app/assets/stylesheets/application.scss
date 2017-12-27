@@ -1,5 +1,11 @@
 @import "semantic-ui";
 
+.forumMenu{
+    background-color: #f2f6f9 !important;
+    padding-left: 15em;
+    padding-right: 15em
+}
+
 .header{
   font-size: 2.5em;
   line-height: 1em;
@@ -24,6 +30,14 @@
   font-weight:300;
   text-align:justify;
   width: 100%;
+}
+
+.debugBox{
+  display: block;
+  background-color: #000;
+  color: green;
+  width: 50%;
+  margin-top: 5em;
 }
 
 

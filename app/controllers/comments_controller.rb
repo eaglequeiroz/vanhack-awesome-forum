@@ -5,12 +5,12 @@ class CommentsController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
     @comment = @topic.comments.create(comment_params)
-
+    @comment.user_id = current_user.id
 
     if @comment.save
-    redirect_to topic_path(@topic)
+      redirect_to topic_path(@topic)
     else
-      render root_url
+      redirect_to root_path
     end
 
   end
