@@ -1,6 +1,6 @@
 # Vanhack Awesome Forum
 
-Vanhack Awesome Forum is a Fully functional forum created in Ruby on Rails for a study purpose and testing as well. It has a lot things to improve but can already be used for anyone (including Vanhack itself :D )
+Vanhack Awesome Forum is a Fully functional forum created in Ruby on Rails for a study purpose and testing as well. It has a lot of features to improve but can already be used for anyone (including Vanhack itself :D )
 
 ## Technologies
 Core
