@@ -25,16 +25,16 @@ $ bundle install
 Config your config/database.yml for your PostgreSQL database (username and password)
 
 ```json
-username: <HERE GOES YOUR USERNAME>
-password: <HERE GOES YOUR PASSWORD>
+ username: <HERE GOES YOUR USERNAME>
+ password: <HERE GOES YOUR PASSWORD>
 ```
 
 Execute your migrations on the app folder
 ```console
-rake db:migrate
+$ rake db:migrate
 ```
 
 Run the application
 ```console
-rails s
+$ rails s
 ```
