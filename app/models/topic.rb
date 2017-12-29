@@ -1,5 +1,5 @@
 class Topic < ApplicationRecord
-  validates :title, presence: true, length: { minimum: 10, maximum: 150 }
+  validates :title, presence: true, length: { minimum: 10, maximum: 150 }, uniqueness: { case_sensitive: false }
   validates :content, presence: true, length: { minimum: 20 }
   belongs_to :user
   has_many :comments, dependent: :destroy

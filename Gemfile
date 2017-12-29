@@ -14,6 +14,8 @@ gem 'jquery-rails'
 # Will Paginate
 gem 'will_paginate'
 
+# Figaro GEM for Database ENV variables
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
